@@ -1,3 +1,6 @@
+#ifndef ECPRI_PACKET_H
+#define ECPRI_PACKET_H
+
 #include "RawEthernetPacket.h"
 
 struct Header{
@@ -38,4 +41,4 @@ public:
     virtual void print();
 };
 
-
+#endif // ECPRI_PACKET_H

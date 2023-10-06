@@ -1,3 +1,6 @@
+#ifndef RAW_ETHERNET_PACKET_H
+#define RAW_ETHERNET_PACKET_H
+
 #include <string>
 #include <iostream>
 using namespace std;
@@ -22,3 +25,5 @@ public:
     RawEthernetPacket(const string& s);
     virtual void print();
 };
+
+#endif // RAW_ETHERNET_PACKET_H

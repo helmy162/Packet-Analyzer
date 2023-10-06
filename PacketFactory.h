@@ -1,3 +1,6 @@
+#ifndef PACKET_FACTORY_H
+#define PACKET_FACTORY_H
+
 #include "ECPRIPacket.h"
 
 const int ECPRI_TYPE_IDENTIFIER_START_POSITION = 40;
@@ -10,3 +13,5 @@ public:
 private:
     static string getTypeIdentifier(int typeIdentifierStartPosition, int typeIdentifierLength, const string& packet);
 };
+
+#endif // PACKET_FACTORY_H
