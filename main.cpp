@@ -1,17 +1,16 @@
-#include "ECPRIPacket.h"
+#include "PacketFactory.h"
 #include <vector>
 
 int main() {
     freopen("input_packets", "r", stdin);
-    freopen("output_packets", "w", stdout);
+    freopen("my_output_packets", "w", stdout);
 
-    vector<RawEthernetPacket*> packets;
-    string packetFrame;
+    vector<RawEthernetPacket*> packets; // Vector to store packet objects
+    string packetFrame; // To store each packet data from input
+
     while (cin >> packetFrame){
-        if(packetFrame.substr(40, 4) == "AEFE")
-            packets.push_back(new ECPRIPacket(packetFrame));
-        else
-            packets.push_back(new RawEthernetPacket(packetFrame));
+        RawEthernetPacket* packet = PacketFactory::createPacket(packetFrame);
+        packets.push_back(packet);
     }
 
     for (int i = 0; i < packets.size(); ++i) {
@@ -22,6 +21,12 @@ int main() {
              << "****************************************************************"
              << "*****************************************\n\n";
     }
+
+    // free the allocated memory
+    for (RawEthernetPacket* packet : packets) {
+        delete packet;
+    }
+
     return 0;
 }
 
