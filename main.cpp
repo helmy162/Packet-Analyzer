@@ -1,5 +1,5 @@
 #include "PacketFactory.h"
-#include <vector>
+#include "PacketsPrintHandler.h"
 
 int main() {
     freopen("input_packets", "r", stdin);
@@ -8,19 +8,14 @@ int main() {
     vector<RawEthernetPacket*> packets; // Vector to store packet objects
     string packetFrame; // To store each packet data from input
 
+    // getting packets from the input_packets file
     while (cin >> packetFrame){
         RawEthernetPacket* packet = PacketFactory::createPacket(packetFrame);
         packets.push_back(packet);
     }
 
-    for (int i = 0; i < packets.size(); ++i) {
-        cout << "Packet # " << i << ":\n";
-        packets[i]->print();
-        cout << "\n*************************************************************"
-             << "****************************************************************"
-             << "****************************************************************"
-             << "*****************************************\n\n";
-    }
+    // printing the parsed data in the output file
+    PacketsPrintHandler::printPackets(packets);
 
     // free the allocated memory
     for (RawEthernetPacket* packet : packets) {
