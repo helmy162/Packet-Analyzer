@@ -4,6 +4,16 @@
 
 The Packet Analyzer is a C++ project designed to parse and analyze network packets, particularly focusing on Ethernet and eCPRI packets. Given an input file containing raw packet data, the analyzer parses each packet, extracting relevant fields and producing a structured output for further analysis or debugging. The solution adheres to Object-Oriented Programming (OOP) principles, encapsulating packet-related logic within dedicated classes and utilizing a factory design pattern for object creation.
 
+## Running the App
+
+1. Put your input in [input_packets](input_packets) file.
+2. Run the Application either from your C++ IDE or from the executable file provided [PacketParser.exe](PacketParser.exe).
+3. That's it! Your output will appear in a file named `my_output_packets`.
+## UML CLass Diagram
+
+![UML Class Diagram](./UML_Class_Diagram.png)
+
+
 ## Design Patterns and Principles
 
 ### Factory Design Pattern
@@ -65,9 +75,4 @@ Used in `PacketFactory`, this design pattern allows the program to instantiate o
   3. Stores packet objects in a vector.
   4. Utilizes `PacketsPrintHandler` to output parsed packet data into my_output_packets file.
 
-## Building and Running
-
-To be added...
-
 ---
-This README provides an overview and insight into the design and structure of the Packet Analyzer. It would be beneficial to dive deeper into the code to provide more specific details, especially regarding any algorithms used, performance considerations, and potential improvements or optimizations.
