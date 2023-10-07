@@ -11,7 +11,7 @@ class PacketFactory {
 public:
     static RawEthernetPacket* createPacket(const std::string& packetFrame);
 private:
-    static string getTypeIdentifier(int typeIdentifierStartPosition, int typeIdentifierLength, const string& packet);
+    static string getTypeIdentifier(const string& packet);
 };
 
 #endif // PACKET_FACTORY_H
